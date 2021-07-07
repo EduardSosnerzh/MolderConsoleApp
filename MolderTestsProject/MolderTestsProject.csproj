@@ -31,13 +31,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Steps\Steps.cs">
+    <Compile Update="CalculatorExample\Steps\Steps.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="DataBaseExample\Steps\Hooks.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="DataBaseExample\Steps\Steps.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="appsettings.json">
+    <None Update="CalculatorExample\appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DataBaseExample\appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

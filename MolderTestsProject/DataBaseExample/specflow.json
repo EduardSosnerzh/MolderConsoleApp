@@ -1,0 +1,16 @@
+﻿{
+  "bindingCulture": {
+    "name": "en-us"
+  },
+  "stepAssemblies": [
+    {
+      "assembly": "Molder.Generator"
+    },
+    {
+      "assembly": "Molder.Configuration"
+    },
+    {
+      "assembly": "Molder.Database"
+    }
+  ]
+}
