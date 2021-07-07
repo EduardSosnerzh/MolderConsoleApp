@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace MolderTestsProject.CalculatorExample
+namespace Molder.DatabaseExample
 {
     using TechTalk.SpecFlow;
     using System;
@@ -19,19 +19,23 @@ namespace MolderTestsProject.CalculatorExample
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.3.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class CalculatorFeature : object, Xunit.IClassFixture<CalculatorFeature.FixtureData>, System.IDisposable
+    [Xunit.TraitAttribute("Category", "ignore")]
+    [Xunit.TraitAttribute("Category", "SqlServer")]
+    public partial class DatabaseExamplesFeature : object, Xunit.IClassFixture<DatabaseExamplesFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
+        private string[] _featureTags = new string[] {
+                "ignore",
+                "SqlServer"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "Eample.feature"
+#line 1 "DatabaseExample.feature"
 #line hidden
         
-        public CalculatorFeature(CalculatorFeature.FixtureData fixtureData, MolderTestsProject_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public DatabaseExamplesFeature(DatabaseExamplesFeature.FixtureData fixtureData, Molder_DatabaseExample_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +44,9 @@ namespace MolderTestsProject.CalculatorExample
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Calculator", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "DatabaseExamples", null, ProgrammingLanguage.CSharp, new string[] {
+                        "ignore",
+                        "SqlServer"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -75,20 +81,39 @@ namespace MolderTestsProject.CalculatorExample
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 4
+ #line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "DataSource",
+                        "InitialCatalog",
+                        "UserID",
+                        "Password"});
+            table1.AddRow(new string[] {
+                        "{{SOURCE}}",
+                        "{{DATABASE}}",
+                        "{{LOGIN}}",
+                        "{{PASSWORD}}"});
+#line 5
+  testRunner.Given("я подключаюсь к БД MS SQL Server с названием \"DataBase\":", ((string)(null)), table1, "Given ");
+#line hidden
+        }
+        
         void System.IDisposable.Dispose()
         {
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="AddTwoNumbers")]
-        [Xunit.TraitAttribute("FeatureTitle", "Calculator")]
-        [Xunit.TraitAttribute("Description", "AddTwoNumbers")]
-        public virtual void AddTwoNumbers()
+        [Xunit.SkippableFactAttribute(DisplayName="SELECT")]
+        [Xunit.TraitAttribute("FeatureTitle", "DatabaseExamples")]
+        [Xunit.TraitAttribute("Description", "SELECT")]
+        public virtual void SELECT()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("AddTwoNumbers", null, tagsOfScenario, argumentsOfScenario);
-#line 3
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("SELECT", null, tagsOfScenario, argumentsOfScenario);
+#line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -109,16 +134,11 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 4
- testRunner.Given("я записываю первое значение \"50\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ this.FeatureBackground();
 #line hidden
-#line 5
- testRunner.Given("я записываю второе значение \"71\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 6
- testRunner.When("оба значения записаны", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 7
- testRunner.Then("результат должен быть \"121\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 10
+ testRunner.Given("я выполняю \"SELECT\" запрос в БД \"DataBase\" и сохраняю результат в переменную \"res" +
+                        "ult\":", "SELECT * FROM ftTest", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -131,12 +151,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                CalculatorFeature.FeatureSetup();
+                DatabaseExamplesFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                CalculatorFeature.FeatureTearDown();
+                DatabaseExamplesFeature.FeatureTearDown();
             }
         }
     }
