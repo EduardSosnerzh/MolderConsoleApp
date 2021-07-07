@@ -19,7 +19,6 @@ namespace Molder.DatabaseExample
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.3.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.TraitAttribute("Category", "ignore")]
     [Xunit.TraitAttribute("Category", "SqlServer")]
     public partial class DatabaseExamplesFeature : object, Xunit.IClassFixture<DatabaseExamplesFeature.FixtureData>, System.IDisposable
     {
@@ -27,7 +26,6 @@ namespace Molder.DatabaseExample
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = new string[] {
-                "ignore",
                 "SqlServer"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
@@ -45,7 +43,6 @@ namespace Molder.DatabaseExample
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "DatabaseExamples", null, ProgrammingLanguage.CSharp, new string[] {
-                        "ignore",
                         "SqlServer"});
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -83,7 +80,7 @@ namespace Molder.DatabaseExample
         
         public virtual void FeatureBackground()
         {
-#line 4
+#line 3
  #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "DataSource",
@@ -95,7 +92,7 @@ namespace Molder.DatabaseExample
                         "{{DATABASE}}",
                         "{{LOGIN}}",
                         "{{PASSWORD}}"});
-#line 5
+#line 4
   testRunner.Given("я подключаюсь к БД MS SQL Server с названием \"DataBase\":", ((string)(null)), table1, "Given ");
 #line hidden
         }
@@ -113,7 +110,7 @@ namespace Molder.DatabaseExample
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("SELECT", null, tagsOfScenario, argumentsOfScenario);
-#line 9
+#line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -133,12 +130,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
+#line 3
  this.FeatureBackground();
 #line hidden
-#line 10
+#line 9
  testRunner.Given("я выполняю \"SELECT\" запрос в БД \"DataBase\" и сохраняю результат в переменную \"res" +
-                        "ult\":", "SELECT * FROM ftTest", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                        "ult\":", "SELECT * FROM Books", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             }
             this.ScenarioCleanup();

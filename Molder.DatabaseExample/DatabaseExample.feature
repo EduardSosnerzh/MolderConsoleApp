@@ -1,5 +1,4 @@
-﻿@ignore
-@SqlServer
+﻿@SqlServer
 Feature: DatabaseExamples
 	Background: 
 		Given я подключаюсь к БД MS SQL Server с названием "DataBase":
@@ -9,5 +8,7 @@ Feature: DatabaseExamples
 Scenario: SELECT
 	Given я выполняю "SELECT" запрос в БД "DataBase" и сохраняю результат в переменную "result":
 """
-SELECT * FROM ftTest
+SELECT * FROM Books
 """
+
+	
