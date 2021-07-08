@@ -19,19 +19,21 @@ namespace Molder.ServiceExample
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.3.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class MolderServiceFeature : object, Xunit.IClassFixture<MolderServiceFeature.FixtureData>, System.IDisposable
+    [Xunit.TraitAttribute("Category", "WebService")]
+    public partial class FullFeature : object, Xunit.IClassFixture<FullFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
+        private string[] _featureTags = new string[] {
+                "WebService"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
 #line 1 "MolderService.feature"
 #line hidden
         
-        public MolderServiceFeature(MolderServiceFeature.FixtureData fixtureData, Molder_ServiceExample_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public FullFeature(FullFeature.FixtureData fixtureData, Molder_ServiceExample_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +42,8 @@ namespace Molder.ServiceExample
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "MolderService", "\tSimple calculator for adding two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Full", null, ProgrammingLanguage.CSharp, new string[] {
+                        "WebService"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -80,17 +83,15 @@ namespace Molder.ServiceExample
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Add two numbers")]
-        [Xunit.TraitAttribute("FeatureTitle", "MolderService")]
-        [Xunit.TraitAttribute("Description", "Add two numbers")]
-        [Xunit.TraitAttribute("Category", "mytag")]
-        public virtual void AddTwoNumbers()
+        [Xunit.SkippableFactAttribute(DisplayName="GET 1")]
+        [Xunit.TraitAttribute("FeatureTitle", "Full")]
+        [Xunit.TraitAttribute("Description", "GET 1")]
+        public virtual void GET1()
         {
-            string[] tagsOfScenario = new string[] {
-                    "mytag"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", null, tagsOfScenario, argumentsOfScenario);
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET 1", null, tagsOfScenario, argumentsOfScenario);
+#line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -110,17 +111,208 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 6
- testRunner.Given("the first number is 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 5
+ testRunner.Given("я создаю json документ \"output\":", @"{
+    ""data"": {
+        ""id"": 2,
+        ""email"": ""janet.weaver@reqres.in"",
+        ""first_name"": ""Janet"",
+        ""last_name"": ""Weaver"",
+        ""avatar"": ""https://reqres.in/img/faces/2-image.jpg""
+    },
+    ""support"": {
+        ""url"": ""https://reqres.in/#support-heading"",
+        ""text"": ""To keep ReqRes free, contributions towards server costs are appreciated!""
+    }
+}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 7
- testRunner.And("the second number is 70", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Value",
+                            "Style"});
+                table1.AddRow(new string[] {
+                            "Content-Type",
+                            "application/json",
+                            "HEADER"});
+#line 21
+ testRunner.When("я вызываю веб-сервис \"Get\" по адресу \"https://reqres.in/api/users/2\" с методом \"G" +
+                        "et\", используя параметры:", ((string)(null)), table1, "When ");
 #line hidden
-#line 8
- testRunner.When("the two numbers are added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 24
+ testRunner.Then("веб-сервис \"Get\" выполнился со статусом \"200\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 9
- testRunner.Then("the result should be 120", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 25
+  testRunner.And("я сохраняю результат вызова веб-сервиса \"Get\" как json в переменную \"result\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 26
+  testRunner.And("я убеждаюсь, что значение переменной \"result.//\" равно \"{{output.//}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="GET 2")]
+        [Xunit.TraitAttribute("FeatureTitle", "Full")]
+        [Xunit.TraitAttribute("Description", "GET 2")]
+        public virtual void GET2()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET 2", null, tagsOfScenario, argumentsOfScenario);
+#line 28
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 29
+ testRunner.Given("я создаю json документ \"output\":", "{\r\n}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Value",
+                            "Style"});
+                table2.AddRow(new string[] {
+                            "Content-Type",
+                            "application/json",
+                            "HEADER"});
+#line 34
+ testRunner.When("я вызываю веб-сервис \"Get\" по адресу \"https://reqres.in/api/users/23\" с методом \"" +
+                        "Get\", используя параметры:", ((string)(null)), table2, "When ");
+#line hidden
+#line 37
+ testRunner.Then("веб-сервис \"Get\" выполнился со статусом \"404\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 38
+  testRunner.And("я сохраняю результат вызова веб-сервиса \"Get\" как json в переменную \"result\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 39
+  testRunner.And("я убеждаюсь, что значение переменной \"result.//\" равно \"{{output.//}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="POST")]
+        [Xunit.TraitAttribute("FeatureTitle", "Full")]
+        [Xunit.TraitAttribute("Description", "POST")]
+        public virtual void POST()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("POST", null, tagsOfScenario, argumentsOfScenario);
+#line 42
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 43
+ testRunner.Given("я сохраняю текст в переменную \"input\":", "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"leader\"\r\n}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 50
+ testRunner.Given("я создаю json документ \"output\":", "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"leader\",\r\n    \"id\": \"350\",\r\n    \"createdA" +
+                        "t\": \"2021-07-08T15:25:22.844Z\"\r\n}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Value",
+                            "Style"});
+                table3.AddRow(new string[] {
+                            "Content-Type",
+                            "application/json",
+                            "HEADER"});
+                table3.AddRow(new string[] {
+                            "Body",
+                            "input",
+                            "BODY"});
+#line 59
+ testRunner.When("я вызываю веб-сервис \"Post\" по адресу \"https://reqres.in/api/users\" с методом \"Po" +
+                        "st\", используя параметры:", ((string)(null)), table3, "When ");
+#line hidden
+#line 63
+ testRunner.Then("веб-сервис \"Post\" выполнился со статусом \"Created\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 64
+  testRunner.And("я сохраняю результат вызова веб-сервиса \"Post\" как json в переменную \"result\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 65
+  testRunner.And("write variable \"result[0][0]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="DELETE")]
+        [Xunit.TraitAttribute("FeatureTitle", "Full")]
+        [Xunit.TraitAttribute("Description", "DELETE")]
+        public virtual void DELETE()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("DELETE", null, tagsOfScenario, argumentsOfScenario);
+#line 67
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Value",
+                            "Style"});
+                table4.AddRow(new string[] {
+                            "Content-Type",
+                            "application/json",
+                            "HEADER"});
+#line 68
+ testRunner.When("я вызываю веб-сервис \"Delete\" по адресу \"https://reqres.in/api/users/2\" с методом" +
+                        " \"Delete\", используя параметры:", ((string)(null)), table4, "When ");
+#line hidden
+#line 71
+ testRunner.Then("веб-сервис \"Delete\" выполнился со статусом \"204\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -133,12 +325,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                MolderServiceFeature.FeatureSetup();
+                FullFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                MolderServiceFeature.FeatureTearDown();
+                FullFeature.FeatureTearDown();
             }
         }
     }

@@ -11,14 +11,14 @@ Feature: DatabaseExamples
 	"""
 	SELECT * FROM Book
 	"""
-		Then write variable "result"
+		Then write variable "result[0][1]"
 
 	Scenario: SELECT WHERE
 		Given я выполняю "SELECT" запрос в БД "DataBase" и сохраняю результат в переменную "result":
 		"""
 		SELECT NAME FROM Book WHERE NAME LIKE 'F%'
 		"""
-		Then write variable "result"
+		Then write variable "result[0]"
 
 
 
@@ -92,6 +92,7 @@ Feature: DatabaseExamples
 	"""
 	DROP TABLE TEST
 	"""
+	@ignore
 	Scenario: DropTable
 	Given я выполняю запрос в БД "DataBase" с сохранением количества обработанных записей в переменную "tmp":
 	"""

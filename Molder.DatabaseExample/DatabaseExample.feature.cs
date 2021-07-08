@@ -138,7 +138,7 @@ namespace Molder.DatabaseExample
                         "ult\":", "SELECT * FROM Book", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 14
-  testRunner.Then("write variable \"result\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("write variable \"result[0][1]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -180,7 +180,7 @@ namespace Molder.DatabaseExample
                         "ult\":", "SELECT NAME FROM Book WHERE NAME LIKE \'F%\'", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 21
-  testRunner.Then("write variable \"result\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("write variable \"result[0]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -368,7 +368,7 @@ namespace Molder.DatabaseExample
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("DropTable", null, tagsOfScenario, argumentsOfScenario);
-#line 95
+#line 96
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -391,7 +391,7 @@ namespace Molder.DatabaseExample
 #line 3
  this.FeatureBackground();
 #line hidden
-#line 96
+#line 97
  testRunner.Given("я выполняю запрос в БД \"DataBase\" с сохранением количества обработанных записей в" +
                         " переменную \"tmp\":", "DROP TABLE TEST", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden

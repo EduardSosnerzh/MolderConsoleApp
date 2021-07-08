@@ -80,13 +80,18 @@ namespace MolderTestsProject
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="AddTwoNumbers")]
+        [Xunit.SkippableTheoryAttribute(DisplayName="AddTwoNumbers")]
         [Xunit.TraitAttribute("FeatureTitle", "Calculator")]
         [Xunit.TraitAttribute("Description", "AddTwoNumbers")]
-        public virtual void AddTwoNumbers()
+        [Xunit.InlineDataAttribute("1", new string[0])]
+        [Xunit.InlineDataAttribute("4", new string[0])]
+        [Xunit.InlineDataAttribute("5", new string[0])]
+        [Xunit.InlineDataAttribute("{{first}}", new string[0])]
+        public virtual void AddTwoNumbers(string a, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("a", a);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("AddTwoNumbers", null, tagsOfScenario, argumentsOfScenario);
 #line 3
 this.ScenarioInitialize(scenarioInfo);
@@ -109,16 +114,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 4
- testRunner.Given("я записываю первое значение \"50\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("я сохраняю число \"50\" в переменную \"first\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 5
- testRunner.Given("я записываю второе значение \"71\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 6
- testRunner.When("оба значения записаны", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 7
- testRunner.Then("результат должен быть \"121\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And(string.Format("bla bla \"{0}\"", a), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

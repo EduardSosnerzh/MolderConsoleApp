@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Molder.Generator" Version="1.0.20" />
+    <PackageReference Include="Molder.Service" Version="1.0.15" />
+  </ItemGroup>
+
 </Project>
