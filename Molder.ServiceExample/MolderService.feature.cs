@@ -464,6 +464,12 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("я сохраняю результат вызова веб-сервиса \"Put\" как json в переменную \"result\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 112
+  testRunner.And("я убеждаюсь, что значение переменной \"result.//name\" равно \"morpheus\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 113
+  testRunner.And("я убеждаюсь, что значение переменной \"result.//job\" равно \"zion resident\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 114
   testRunner.And("write variable \"result.//\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -478,7 +484,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("DELETE", null, tagsOfScenario, argumentsOfScenario);
-#line 114
+#line 116
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -506,11 +512,11 @@ this.ScenarioInitialize(scenarioInfo);
                             "Content-Type",
                             "application/json",
                             "HEADER"});
-#line 115
+#line 117
  testRunner.When("я вызываю веб-сервис \"Delete\" по адресу \"https://reqres.in/api/users/2\" с методом" +
                         " \"Delete\", используя параметры:", ((string)(null)), table7, "When ");
 #line hidden
-#line 118
+#line 120
  testRunner.Then("веб-сервис \"Delete\" выполнился со статусом \"204\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

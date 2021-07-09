@@ -51,7 +51,7 @@ Scenario: POST
 	When я вызываю веб-сервис "Post" по адресу "https://reqres.in/api/users" с методом "Post", используя параметры:
 		| Name         | Value            | Style  |
 		| Content-Type | application/json | HEADER |
-		| Body         | input          | BODY   |
+		| Body         | input            | BODY   |
 	Then веб-сервис "Post" выполнился со статусом "Created"
 		And я сохраняю результат вызова веб-сервиса "Post" как json в переменную "result"
 		And write variable "result"
@@ -69,7 +69,7 @@ Scenario: POST with Generator
 	When я вызываю веб-сервис "Post" по адресу "https://reqres.in/api/users" с методом "Post", используя параметры:
 		| Name         | Value            | Style  |
 		| Content-Type | application/json | HEADER |
-		| Body         | input          | BODY   |
+		| Body         | input            | BODY   |
 	Then веб-сервис "Post" выполнился со статусом "Created"
 		And я сохраняю результат вызова веб-сервиса "Post" как json в переменную "result"
 		And я убеждаюсь, что значение переменной "result.//name" равно "{{tmp1}}"
@@ -88,7 +88,7 @@ Scenario: POST with appsetings
 	When я вызываю веб-сервис "Post" по адресу "https://reqres.in/api/users" с методом "Post", используя параметры:
 		| Name         | Value            | Style  |
 		| Content-Type | application/json | HEADER |
-		| Body         | input          | BODY   |
+		| Body         | input            | BODY   |
 	Then веб-сервис "Post" выполнился со статусом "Created"
 		And я сохраняю результат вызова веб-сервиса "Post" как json в переменную "result"
 		And я убеждаюсь, что значение переменной "result.//name" равно "{{Value1}}"
@@ -106,9 +106,11 @@ Scenario: PUT
 	When я вызываю веб-сервис "Put" по адресу "https://reqres.in/api/users/2" с методом "Put", используя параметры:
 		| Name         | Value            | Style  |
 		| Content-Type | application/json | HEADER |
-		| Body         | input			| BODY   |
+		| Body         | input            | BODY   |
 	Then веб-сервис "Put" выполнился со статусом "200"
 		And я сохраняю результат вызова веб-сервиса "Put" как json в переменную "result"
+		And я убеждаюсь, что значение переменной "result.//name" равно "morpheus"
+		And я убеждаюсь, что значение переменной "result.//job" равно "zion resident"
 		And write variable "result.//"
 
 Scenario: DELETE
