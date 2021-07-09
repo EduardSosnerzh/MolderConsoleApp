@@ -1,5 +1,5 @@
 ﻿@WebService
-Feature: Full
+Feature: Service
 
 Scenario: GET 1
 	Given я создаю json документ "output":
@@ -47,25 +47,47 @@ Scenario: POST
     "job": "leader"
 }
 """
-	Given я создаю json документ "output":
-"""
-{
-    "name": "morpheus",
-    "job": "leader",
-    "id": "350",
-    "createdAt": "2021-07-08T15:25:22.844Z"
-}
-"""
 	When я вызываю веб-сервис "Post" по адресу "https://reqres.in/api/users" с методом "Post", используя параметры:
 		| Name         | Value            | Style  |
 		| Content-Type | application/json | HEADER |
 		| Body         | input          | BODY   |
 	Then веб-сервис "Post" выполнился со статусом "Created"
 		And я сохраняю результат вызова веб-сервиса "Post" как json в переменную "result"
-		And write variable "result[0][0]"
+		And write variable "result"
 
 Scenario: DELETE
 	When я вызываю веб-сервис "Delete" по адресу "https://reqres.in/api/users/2" с методом "Delete", используя параметры:
 		| Name         | Value            | Style  |
 		| Content-Type | application/json | HEADER |
 	Then веб-сервис "Delete" выполнился со статусом "204"
+
+Scenario: PUT
+	Given я сохраняю текст в переменную "input":
+	"""
+	{
+		"name": "morpheus",
+		"job": "zion resident"
+	}
+	"""
+	When я вызываю веб-сервис "Put" по адресу "https://reqres.in/api/users/2" с методом "Put", используя параметры:
+		| Name         | Value            | Style  |
+		| Content-Type | application/json | HEADER |
+		| Body         | input			| BODY   |
+	Then веб-сервис "Put" выполнился со статусом "200"
+		And я сохраняю результат вызова веб-сервиса "Put" как json в переменную "result"
+		And write variable "result"
+
+Scenario: PUT
+	Given я сохраняю текст в переменную "input":
+	"""
+	{
+		"name": "morpheus",
+		"job": "zion resident"
+	}
+	"""
+	When я вызываю веб-сервис "Put" по адресу "https://reqres.in/api/users/2" с методом "Put", используя параметры:
+		| Name         | Value            | Style  |
+		| Content-Type | application/json | HEADER |
+		| Body         | input			| BODY   |
+	Then веб-сервис "Put" выполнился со статусом "200"
+		And я сохраняю результат вызова веб-сервиса "Put" как json в переменную "result"
