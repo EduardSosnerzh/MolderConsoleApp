@@ -111,7 +111,7 @@ namespace Molder.DatabaseExample
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("SELECT *", null, tagsOfScenario, argumentsOfScenario);
 #line 9
- this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -153,7 +153,7 @@ namespace Molder.DatabaseExample
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("SELECT WHERE", null, tagsOfScenario, argumentsOfScenario);
 #line 16
- this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -180,7 +180,7 @@ namespace Molder.DatabaseExample
                         "ult\":", "SELECT NAME FROM Book WHERE NAME LIKE \'F%\'", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 21
-  testRunner.Then("write variable \"result[0]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("write variable \"result[0][0]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -195,7 +195,7 @@ namespace Molder.DatabaseExample
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Drop Table", null, tagsOfScenario, argumentsOfScenario);
 #line 25
- this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -222,14 +222,14 @@ namespace Molder.DatabaseExample
                         " переменную \"tmp\":", "CREATE TABLE TEST\r\n(\r\nID INT NOT NULL,\r\nNAME NCHAR(10)\r\n)", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 34
- testRunner.Given("я выполняю \"INSERT\" запрос в БД \"DataBase\" и не сохраняю результат:", "INSERT INTO TEST(ID, NAME) VALUES (0,\'aS12!\')", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("я выполняю \"INSERT\" запрос в БД \"DataBase\" и не сохраняю результат:", "INSERT INTO TEST(ID, NAME) VALUES (0,\'qwerty\')", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 38
  testRunner.Then("я выполняю \"SELECT\" запрос в БД \"DataBase\" и сохраняю результат в переменную \"tes" +
                         "t\":", "SELECT * FROM TEST", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 42
- testRunner.Then("write variable \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("write variable \"test[0][1]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 43
  testRunner.And("я выполняю запрос в БД \"DataBase\" с сохранением количества обработанных записей в" +
@@ -248,7 +248,7 @@ namespace Molder.DatabaseExample
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create, Insert from Molder.Generator and Drop Table", null, tagsOfScenario, argumentsOfScenario);
 #line 48
- this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -271,28 +271,43 @@ namespace Molder.DatabaseExample
  this.FeatureBackground();
 #line hidden
 #line 49
+ testRunner.Given("я сохраняю случайный набор цифр длиной 2 знаков в переменную \"tmp1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 50
+ testRunner.Given("я сохраняю случайный набор букв и цифр длиной 2 знаков в переменную \"tmp2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 51
  testRunner.Given("я выполняю запрос в БД \"DataBase\" с сохранением количества обработанных записей в" +
                         " переменную \"tmp\":", "CREATE TABLE TEST\r\n(\r\nID INT NOT NULL,\r\nNAME VARCHAR(20)\r\n)", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 57
- testRunner.Given("я сохраняю случайный набор цифр длиной 2 знаков в переменную \"tmp1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 58
- testRunner.Given("я сохраняю случайный набор букв и цифр длиной 2 знаков в переменную \"tmp2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 59
- testRunner.Given("я выполняю \"INSERT\" запрос в БД \"DataBase\" и не сохраняю результат:", "INSERT INTO TEST(ID, NAME) VALUES ({{tmp1}},{{tmp2}})", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("я выполняю \"INSERT\" запрос в БД \"DataBase\" и не сохраняю результат:", "INSERT INTO TEST(ID, NAME) VALUES ({{tmp1}},\'{{tmp2}}\')", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 63
  testRunner.Then("я выполняю \"SELECT\" запрос в БД \"DataBase\" и сохраняю результат в переменную \"tes" +
                         "t\":", "SELECT * FROM TEST", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 67
- testRunner.Then("write variable \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("write variable \"test[0][0]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 68
- testRunner.And("я выполняю запрос в БД \"DataBase\" с сохранением количества обработанных записей в" +
-                        " переменную \"tmp\":", "DROP TABLE TEST", ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("write variable \"tmp1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 69
+ testRunner.And("я убеждаюсь, что значение переменной \"test[0][0]\" содержит \"{{tmp1}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 70
+ testRunner.Then("write variable \"test[0][1]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 71
+ testRunner.And("write variable \"tmp2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 72
+ testRunner.And("я убеждаюсь, что значение переменной \"test[0][1]\" содержит \"{{tmp2}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 73
+ testRunner.Then("я выполняю запрос в БД \"DataBase\" с сохранением количества обработанных записей в" +
+                        " переменную \"tmp\":", "DROP TABLE TEST", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -306,8 +321,8 @@ namespace Molder.DatabaseExample
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create, Insert from Table and Drop Table", null, tagsOfScenario, argumentsOfScenario);
-#line 73
- this.ScenarioInitialize(scenarioInfo);
+#line 78
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -329,7 +344,7 @@ namespace Molder.DatabaseExample
 #line 3
  this.FeatureBackground();
 #line hidden
-#line 74
+#line 79
  testRunner.Given("я выполняю запрос в БД \"DataBase\" с сохранением количества обработанных записей в" +
                         " переменную \"tmp\":", "CREATE TABLE TEST\r\n(\r\nID INT NOT NULL,\r\nNAME NCHAR(10)\r\n)", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
@@ -342,17 +357,26 @@ namespace Molder.DatabaseExample
                 table2.AddRow(new string[] {
                             "5",
                             "rest1"});
-#line 82
+#line 87
  testRunner.Then("я добавляю записи в таблицу \"TEST\" в БД \"DataBase\":", ((string)(null)), table2, "Then ");
 #line hidden
-#line 86
+#line 91
  testRunner.Then("я выполняю \"SELECT\" запрос в БД \"DataBase\" и сохраняю результат в переменную \"tes" +
                         "t\":", "SELECT * FROM TEST", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 90
- testRunner.Then("write variable \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 95
+ testRunner.Then("write variable \"test[0][1]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 91
+#line 96
+ testRunner.Then("write variable \"test[1][1]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 97
+ testRunner.Then("я убеждаюсь, что значение переменной \"test[0][1]\" содержит \"456asd\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 98
+ testRunner.Then("я убеждаюсь, что значение переменной \"test[1][1]\" содержит \"rest1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 99
  testRunner.And("я выполняю запрос в БД \"DataBase\" с сохранением количества обработанных записей в" +
                         " переменную \"tmp\":", "DROP TABLE TEST", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -360,16 +384,18 @@ namespace Molder.DatabaseExample
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="DropTable")]
+        [Xunit.SkippableFactAttribute(DisplayName="Create, Insert from appsetings and Drop Table")]
         [Xunit.TraitAttribute("FeatureTitle", "DatabaseExamples")]
-        [Xunit.TraitAttribute("Description", "DropTable")]
-        public virtual void DropTable()
+        [Xunit.TraitAttribute("Description", "Create, Insert from appsetings and Drop Table")]
+        [Xunit.TraitAttribute("Category", "Values")]
+        public virtual void CreateInsertFromAppsetingsAndDropTable()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "Values"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("DropTable", null, tagsOfScenario, argumentsOfScenario);
-#line 96
- this.ScenarioInitialize(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create, Insert from appsetings and Drop Table", null, tagsOfScenario, argumentsOfScenario);
+#line 105
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -391,7 +417,143 @@ namespace Molder.DatabaseExample
 #line 3
  this.FeatureBackground();
 #line hidden
-#line 97
+#line 106
+ testRunner.Given("я выполняю запрос в БД \"DataBase\" с сохранением количества обработанных записей в" +
+                        " переменную \"tmp\":", "CREATE TABLE TEST\r\n(\r\nID INT NOT NULL,\r\nNAME NCHAR(10)\r\n)", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 114
+ testRunner.Given("я выполняю \"INSERT\" запрос в БД \"DataBase\" и не сохраняю результат:", "INSERT INTO TEST(ID, NAME) VALUES ({{Value1}},\'{{Value2}}\')", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 118
+ testRunner.Then("я выполняю \"SELECT\" запрос в БД \"DataBase\" и сохраняю результат в переменную \"tes" +
+                        "t\":", "SELECT * FROM TEST", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 122
+ testRunner.Then("write variable \"test[0][0]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 123
+ testRunner.And("я убеждаюсь, что значение переменной \"test[0][0]\" содержит \"{{Value1}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 124
+ testRunner.Then("write variable \"test[0][1]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 125
+ testRunner.And("я убеждаюсь, что значение переменной \"test[0][1]\" содержит \"{{Value2}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 126
+ testRunner.And("я выполняю запрос в БД \"DataBase\" с сохранением количества обработанных записей в" +
+                        " переменную \"tmp\":", "DROP TABLE TEST", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Create, Insert, Update and Drop Table")]
+        [Xunit.TraitAttribute("FeatureTitle", "DatabaseExamples")]
+        [Xunit.TraitAttribute("Description", "Create, Insert, Update and Drop Table")]
+        public virtual void CreateInsertUpdateAndDropTable()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create, Insert, Update and Drop Table", null, tagsOfScenario, argumentsOfScenario);
+#line 131
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 3
+ this.FeatureBackground();
+#line hidden
+#line 132
+ testRunner.Given("я выполняю запрос в БД \"DataBase\" с сохранением количества обработанных записей в" +
+                        " переменную \"tmp\":", "CREATE TABLE TEST\r\n(\r\nID INT NOT NULL,\r\nNAME NCHAR(10)\r\n)", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "ID",
+                            "NAME"});
+                table3.AddRow(new string[] {
+                            "0",
+                            "456asd"});
+                table3.AddRow(new string[] {
+                            "5",
+                            "rest1"});
+#line 140
+ testRunner.Then("я добавляю записи в таблицу \"TEST\" в БД \"DataBase\":", ((string)(null)), table3, "Then ");
+#line hidden
+#line 144
+ testRunner.Then("я выполняю \"SELECT\" запрос в БД \"DataBase\" и сохраняю результат в переменную \"tes" +
+                        "t1\":", "SELECT * FROM TEST", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 148
+ testRunner.Then("write variable \"test[0][1]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 149
+ testRunner.Then("я выполняю \"UPDATE\" запрос в БД \"DataBase\" и не сохраняю результат:", "UPDATE TEST\r\nSET NAME = \'QWERTY\'\r\nWHERE ID = 0", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 155
+ testRunner.Then("я выполняю \"SELECT\" запрос в БД \"DataBase\" и сохраняю результат в переменную \"tes" +
+                        "t2\":", "SELECT * FROM TEST\r\nWHERE ID=0", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 160
+ testRunner.Then("я убеждаюсь, что значение переменной \"test2[0][1]\" равно \"QWERTY    \"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 161
+ testRunner.And("я выполняю запрос в БД \"DataBase\" с сохранением количества обработанных записей в" +
+                        " переменную \"tmp\":", "DROP TABLE TEST", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="DropTable")]
+        [Xunit.TraitAttribute("FeatureTitle", "DatabaseExamples")]
+        [Xunit.TraitAttribute("Description", "DropTable")]
+        [Xunit.TraitAttribute("Category", "ignore")]
+        public virtual void DropTable()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "ignore"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("DropTable", null, tagsOfScenario, argumentsOfScenario);
+#line 167
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 3
+ this.FeatureBackground();
+#line hidden
+#line 168
  testRunner.Given("я выполняю запрос в БД \"DataBase\" с сохранением количества обработанных записей в" +
                         " переменную \"tmp\":", "DROP TABLE TEST", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
