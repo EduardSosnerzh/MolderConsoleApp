@@ -11,7 +11,7 @@ Scenario: SELECT *
 		"""
 		SELECT * FROM Book
 		"""
-		Then write variable "result[0][1]"
+		Then write variable "result[0][Name]"
 
 Scenario: SELECT WHERE
 		Given я выполняю "SELECT" запрос в БД "DataBase" и сохраняю результат в переменную "result":
@@ -84,10 +84,10 @@ Scenario: Create, Insert from Table and Drop Table
 	NAME NCHAR(10)
 	)
 	"""
-	Then я добавляю записи в таблицу "TEST" в БД "DataBase":
-		|ID|NAME|
-		|0|456asd|
-		|5|rest1|
+	And я добавляю записи в таблицу "TEST" в БД "DataBase":
+		| ID | NAME   |
+		| 0  | 456asd |
+		| 5  | rest1  |
 	Then я выполняю "SELECT" запрос в БД "DataBase" и сохраняю результат в переменную "test":
 	"""
 	SELECT * FROM TEST

@@ -138,7 +138,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "ult\":", "SELECT * FROM Book", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 14
-  testRunner.Then("write variable \"result[0][1]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("write variable \"result[0][Name]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -358,7 +358,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "5",
                             "rest1"});
 #line 87
- testRunner.Then("я добавляю записи в таблицу \"TEST\" в БД \"DataBase\":", ((string)(null)), table2, "Then ");
+ testRunner.And("я добавляю записи в таблицу \"TEST\" в БД \"DataBase\":", ((string)(null)), table2, "And ");
 #line hidden
 #line 91
  testRunner.Then("я выполняю \"SELECT\" запрос в БД \"DataBase\" и сохраняю результат в переменную \"tes" +
